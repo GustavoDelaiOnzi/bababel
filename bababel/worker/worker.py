@@ -11,7 +11,7 @@ class Worker:
                  port: int,
                  username: str,
                  password: str):
-        self._client: IClient = self._set_client(RabbitMQClient())
+        self._client: IClient = RabbitMQClient()
         self._connection = self._connect(host=host, port=port, username=username, password=password)
         self._channel = None
         self._queues: List[str] = []
@@ -31,6 +31,3 @@ class Worker:
     def _ensure_channel(self) -> None:
         if not self._channel:
             self._channel = self._connection.channel()
-
-    def _set_client(self, client: IClient) -> IClient:
-        return client
