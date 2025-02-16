@@ -1,6 +1,7 @@
 from typing import List
 
 from bababel.abstracts.client import IClient
+from bababel.abstracts.connection import Connection
 from bababel.abstracts.queue_callback_bind import QueueCallbackBind
 from bababel.rabbitmq.client import RabbitMQClient
 
@@ -13,11 +14,11 @@ class Worker:
                  password: str,
                  queue_callback_binds: List[QueueCallbackBind] = None):
         self._client: IClient = RabbitMQClient()
-        self._connection = self._connect(host=host, port=port, username=username, password=password)
+        self._connection: Connection = self._connect(host=host, port=port, username=username, password=password)
         self._channel = None
         self._queue_callback_binds = queue_callback_binds
 
-    def _connect(self, host: str, port: int, username: str, password: str):
+    def _connect(self, host: str, port: int, username: str, password: str) -> Connection:
         return self._client.connect(host=host, port=port, username=username, password=password)
 
     def consume(self, queue_callback_bind: QueueCallbackBind) -> None:
