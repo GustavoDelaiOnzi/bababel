@@ -2,6 +2,7 @@
 
 ### Feat
 
+- **Worker**: add tests
 - add consume method
 
 ### Refactor

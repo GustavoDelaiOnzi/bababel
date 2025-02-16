@@ -26,8 +26,7 @@ class Worker:
         self._channel.queue_declare(queue=queue_callback_bind.queue,
                                     durable=True)
         self._channel.basic_consume(queue=queue_callback_bind.queue,
-                                    on_message_callback=queue_callback_bind.callback,
-                                    auto_ack=False)
+                                    on_message_callback=queue_callback_bind.callback)
         self._channel.start_consuming()
 
     def _ensure_channel(self) -> None:
