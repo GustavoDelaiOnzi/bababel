@@ -3,7 +3,7 @@ from pika.credentials import PlainCredentials
 
 from bababel.abstracts.client import IClient
 from bababel.abstracts.connection import Connection
-from bababel.rabbitmq.connection import RabbitMQConnection
+from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
 
 
 class RabbitMQClient(IClient):

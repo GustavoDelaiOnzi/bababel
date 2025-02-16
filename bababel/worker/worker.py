@@ -11,19 +11,12 @@ class Worker:
         self, host: str, port: int, username: str, password: str, queue_callback_binds: List[QueueCallbackBind] = None
     ):
         self._client: IClient = RabbitMQClient()
-        self._connection: Connection = self._connect(host=host, port=port, username=username, password=password)
-        self._channel = None
+        self._connection: Connection = self._client.connect(host=host, port=port, username=username, password=password)
         self._queue_callback_binds = queue_callback_binds
 
-    def _connect(self, host: str, port: int, username: str, password: str) -> Connection:
-        return self._client.connect(host=host, port=port, username=username, password=password)
-
     def consume(self, queue_callback_bind: QueueCallbackBind) -> None:
-        self._ensure_channel()
-        self._channel.queue_declare(queue=queue_callback_bind.queue, durable=True)
-        self._channel.basic_consume(queue=queue_callback_bind.queue, on_message_callback=queue_callback_bind.callback)
-        self._channel.start_consuming()
-
-    def _ensure_channel(self) -> None:
-        if not self._channel:
-            self._channel = self._connection.establish()
+        self._connection.queue_declare(queue=queue_callback_bind.queue, durable=True)
+        self._connection.basic_consume(
+            queue=queue_callback_bind.queue, on_message_callback=queue_callback_bind.callback
+        )
+        self._connection.start_consuming()

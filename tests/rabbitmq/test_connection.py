@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from bababel.rabbitmq.connection import RabbitMQConnection
+from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
 
 
 @pytest.fixture(autouse=True)
@@ -18,9 +18,8 @@ class TestRabbitMQConnection:
     def sut(self):
         return RabbitMQConnection(parameters=self.params)
 
-    def test_should_return_connection(self, sut, mock_conn):
+    def test_should_init(self, sut, mock_conn):
         # GIVEN
         # WHEN
-        sut.establish()
         # THEN
         mock_conn.assert_called_once_with(parameters=self.params)
