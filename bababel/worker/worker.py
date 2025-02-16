@@ -14,7 +14,7 @@ class Worker:
         self._connection: Connection = self._client.connect(host=host, port=port, username=username, password=password)
         self._queue_callback_binds = queue_callback_binds
 
-    def consume(self, queue_callback_bind: QueueCallbackBind) -> None:
+    def consume_bind(self, queue_callback_bind: QueueCallbackBind) -> None:
         self._connection.queue_declare(queue=queue_callback_bind.queue, durable=True)
         self._connection.basic_consume(
             queue=queue_callback_bind.queue, on_message_callback=queue_callback_bind.callback
