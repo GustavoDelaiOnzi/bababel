@@ -2,11 +2,11 @@
 
 ### Feat
 
-- **Worker**: add tests
 - add consume method
 
 ### Refactor
 
+- rename rabbitmq.client to rabbitmq.rabbitmq_client
 - add Connection abstract class
 - add bind to worker __init__
 - **Worker**: remove _set_client method
