@@ -13,6 +13,7 @@ dependencies = [
     "pika>=1.3.2"
 ]
 urls = { "Homepage" = "https://github.com/GustavoDelaiOnzi/bababel" }
+license-files = ["LICEN[CS]E*"]
 
 [project.optional-dependencies]
 dev = [
@@ -26,6 +27,7 @@ dev = [
 
 [tool.setuptools]
 packages = ["bababel"]
+
 [tool.commitizen]
 name = "cz_conventional_commits"
 tag_format = "$version"
