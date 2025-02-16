@@ -10,19 +10,14 @@ def mock_client(mocker):
 
 class TestWorker:
     def setup_method(self):
-        self.host = 'host'
+        self.host = "host"
         self.port = 1234
-        self.username = 'username'
-        self.password = 'password'
+        self.username = "username"
+        self.password = "password"
 
     @pytest.fixture
     def sut(self):
-        return Worker(
-            host=self.host,
-            port=self.port,
-            username=self.username,
-            password=self.password
-        )
+        return Worker(host=self.host, port=self.port, username=self.username, password=self.password)
 
     @pytest.fixture
     def mock_conn(self, mock_client):
@@ -30,7 +25,7 @@ class TestWorker:
 
     @pytest.fixture
     def mock_channel(self, mock_conn):
-        yield mock_conn.return_value.channel
+        yield mock_conn.return_value.establish
 
     def test_should_connect(self, sut, binds, mock_conn):
         # GIVEN
@@ -42,7 +37,7 @@ class TestWorker:
 
     def test_should_ensure_channel(self, sut, binds, mock_conn):
         # GIVEN
-        mock_channel = mock_conn.return_value.channel
+        mock_channel = mock_conn.return_value.establish
         sut._channel = None
         bind = binds[0]
         # WHEN

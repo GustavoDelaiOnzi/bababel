@@ -7,12 +7,9 @@ from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 
 class Worker:
-    def __init__(self,
-                 host: str,
-                 port: int,
-                 username: str,
-                 password: str,
-                 queue_callback_binds: List[QueueCallbackBind] = None):
+    def __init__(
+        self, host: str, port: int, username: str, password: str, queue_callback_binds: List[QueueCallbackBind] = None
+    ):
         self._client: IClient = RabbitMQClient()
         self._connection: Connection = self._connect(host=host, port=port, username=username, password=password)
         self._channel = None
@@ -23,12 +20,10 @@ class Worker:
 
     def consume(self, queue_callback_bind: QueueCallbackBind) -> None:
         self._ensure_channel()
-        self._channel.queue_declare(queue=queue_callback_bind.queue,
-                                    durable=True)
-        self._channel.basic_consume(queue=queue_callback_bind.queue,
-                                    on_message_callback=queue_callback_bind.callback)
+        self._channel.queue_declare(queue=queue_callback_bind.queue, durable=True)
+        self._channel.basic_consume(queue=queue_callback_bind.queue, on_message_callback=queue_callback_bind.callback)
         self._channel.start_consuming()
 
     def _ensure_channel(self) -> None:
         if not self._channel:
-            self._channel = self._connection.channel()
+            self._channel = self._connection.establish()

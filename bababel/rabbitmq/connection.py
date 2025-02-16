@@ -1,10 +1,12 @@
+from pika.adapters.blocking_connection import BlockingConnection
+from pika.connection import ConnectionParameters
+
 from bababel.abstracts.connection import Connection
-import pika
 
 
 class RabbitMQConnection(Connection):
-    def __init__(self, parameters: pika.ConnectionParameters):
+    def __init__(self, parameters: ConnectionParameters):
         self.parameters = parameters
 
-    def channel(self):
-        return pika.BlockingConnection(parameters=self.parameters)
+    def establish(self):
+        return BlockingConnection(parameters=self.parameters)
