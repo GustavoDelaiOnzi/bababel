@@ -2,7 +2,7 @@ from typing import List
 
 from bababel.abstracts.client import IClient
 from bababel.abstracts.connection import Connection
-from bababel.abstracts.queue_callback_bind import QueueCallbackBind
+from bababel.dataclasses.queue_callback_bind import QueueCallbackBind
 from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 

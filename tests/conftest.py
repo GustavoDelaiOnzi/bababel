@@ -1,6 +1,6 @@
 import pytest
 
-from bababel.abstracts.queue_callback_bind import QueueCallbackBind
+from bababel.dataclasses.queue_callback_bind import QueueCallbackBind
 
 
 @pytest.fixture
