@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "bababel"
 version = "0.1.2"
 description = "A messaging consumer library for handling and processing messages efficiently."
-authors = [{name = "GustavoDelaiOnzi", email = "gustavodelai11@gmail.com"}]
+authors = [{name = "Gustavo Delai Onzi Da Silva", email = "gustavodelai11@gmail.com"}]
 license = {text = "MIT"}
 readme = "README.md"
 dependencies = [
