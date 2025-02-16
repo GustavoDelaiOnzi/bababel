@@ -10,11 +10,12 @@ class Worker:
                  host: str,
                  port: int,
                  username: str,
-                 password: str):
+                 password: str,
+                 queue_callback_binds: List[QueueCallbackBind] = None):
         self._client: IClient = RabbitMQClient()
         self._connection = self._connect(host=host, port=port, username=username, password=password)
         self._channel = None
-        self._queues: List[str] = []
+        self._queue_callback_binds = queue_callback_binds
 
     def _connect(self, host: str, port: int, username: str, password: str):
         return self._client.connect(host=host, port=port, username=username, password=password)
