@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bababel.abstracts package &#8212; Bababel 0.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../_static/documentation_options.js?v=938c9ccc"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="bababel-abstracts-package">
+<h1>bababel.abstracts package<a class="headerlink" href="#bababel-abstracts-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-bababel.abstracts.client">
+<span id="bababel-abstracts-client-module"></span><h2>bababel.abstracts.client module<a class="headerlink" href="#module-bababel.abstracts.client" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="bababel.abstracts.client.IClient">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bababel.abstracts.client.</span></span><span class="sig-name descname"><span class="pre">IClient</span></span><a class="reference internal" href="../../_modules/bababel/abstracts/client.html#IClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bababel.abstracts.client.IClient" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Interface for a client that connects to a remote server.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bababel.abstracts.client.IClient.connect">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bababel.abstracts.connection.IConnection" title="bababel.abstracts.connection.IConnection"><span class="pre">IConnection</span></a></span></span><a class="reference internal" href="../../_modules/bababel/abstracts/client.html#IClient.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bababel.abstracts.client.IClient.connect" title="Link to this definition">¶</a></dt>
+<dd><p>Establish a connection to the specified host.
+:param host: The hostname or IP address of the server to connect to.
+:type host: str
+:param port: The port number on which the server is listening.
+:type port: int
+:param username: The username for authentication.
+:type username: str
+:param password: The password for authentication.
+:type password: str</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-bababel.abstracts.connection">
+<span id="bababel-abstracts-connection-module"></span><h2>bababel.abstracts.connection module<a class="headerlink" href="#module-bababel.abstracts.connection" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="bababel.abstracts.connection.IConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bababel.abstracts.connection.</span></span><span class="sig-name descname"><span class="pre">IConnection</span></span><a class="reference internal" href="../../_modules/bababel/abstracts/connection.html#IConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bababel.abstracts.connection.IConnection" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract base class defining the interface for a connection.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bababel.abstracts.connection.IConnection.basic_consume">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">basic_consume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/bababel/abstracts/connection.html#IConnection.basic_consume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bababel.abstracts.connection.IConnection.basic_consume" title="Link to this definition">¶</a></dt>
+<dd><p>Consume messages from a queue.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bababel.abstracts.connection.IConnection.queue_declare">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">queue_declare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/bababel/abstracts/connection.html#IConnection.queue_declare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bababel.abstracts.connection.IConnection.queue_declare" title="Link to this definition">¶</a></dt>
+<dd><p>Declare a queue with the given parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bababel.abstracts.connection.IConnection.start_consuming">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_consuming</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/bababel/abstracts/connection.html#IConnection.start_consuming"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bababel.abstracts.connection.IConnection.start_consuming" title="Link to this definition">¶</a></dt>
+<dd><p>Start consuming messages from the queue.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-bababel.abstracts">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-bababel.abstracts" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Bababel</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Gustavo Delai Onzi Da Silva.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../../_sources/docs/source/bababel.abstracts.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
