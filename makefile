@@ -24,7 +24,7 @@ build:
 upload: build
 	$(TWINE) upload dist/* --verbose
 
-# Upload to TestPyPI
-.PHONY: upload-test
-upload-test: build
-	$(TWINE) upload --repository testpypi dist/* --verbose
+# Run all tests
+.PHONY: test
+test:
+	 pytest --maxfail=1 --disable-warnings --cov=bababel --cov-report=term-missing:skip-covered --cov-fail-under=90 --color=yes --durations=10
