@@ -7,7 +7,7 @@ from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
 
 @pytest.fixture(autouse=True)
 def mock_conn(mocker):
-    yield mocker.patch("bababel.rabbitmq.connection.BlockingConnection")
+    yield mocker.patch("bababel.rabbitmq.rabbitmq_connection.BlockingConnection")
 
 
 class TestRabbitMQConnection:
