@@ -34,3 +34,7 @@ clean:
 	find . -name "*.pyc" -delete
 	find . -name "*.pyo" -delete
 	find . -name "*.log" -delete
+
+.PHONY: code-convention
+code-convention:
+	pre-commit run --all-files
