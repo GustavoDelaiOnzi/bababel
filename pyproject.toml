@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bababel"
-version = "0.3.2"
+version = "0.3.3"
 description = "A messaging consumer library for handling and processing messages efficiently."
 authors = [{name = "Gustavo Delai Onzi Da Silva", email = "gustavodelai11@gmail.com"}]
 license = {text = "MIT"}
