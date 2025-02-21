@@ -38,7 +38,7 @@ class Worker:
                 A list of QueueCallbackBind objects containing queue names and their callbacks.
         """
         self.client: IClient = RabbitMQClient()
-        self.connection: IConnection = self._client.connect(host=host, port=port, username=username, password=password)
+        self.connection: IConnection = self.client.connect(host=host, port=port, username=username, password=password)
         self.queue_callback_binds = queue_callback_binds or []
 
     def consume_bind(self, queue_callback_bind: QueueCallbackBind) -> None:
