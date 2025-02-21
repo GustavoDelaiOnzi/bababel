@@ -1,3 +1,17 @@
+## 0.3.1 (2025-02-20)
+
+### Fix
+
+- **Worker**: attribute name
+
+### Refactor
+
+- **makefile**: aff missing .PHONY
+- **makefile**: add code-convention
+- **.pre-commit-config.yaml**: remove black from pre-commit
+- add .coveragerc
+- **makefile**: add clean
+
 ## 0.3.0 (2025-02-20)
 
 ### Fix
