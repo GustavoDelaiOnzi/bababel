@@ -1,5 +1,7 @@
-from pika.adapters.blocking_connection import BlockingChannel, BlockingConnection
+from pika.adapters.blocking_connection import (BlockingChannel,
+                                               BlockingConnection)
 from pika.connection import ConnectionParameters
+
 from bababel.abstracts.connection import IConnection
 
 
