@@ -1,3 +1,9 @@
+## 0.3.0 (2025-02-20)
+
+### Fix
+
+- fix Worker import from module
+
 ## 0.2.0 (2025-02-19)
 
 ### Feat
