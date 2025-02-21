@@ -28,8 +28,10 @@ dev = [
 ]
 
 [tool.setuptools]
-packages = ["bababel"]
 license-files = ["LICEN[CS]E*"]
+
+[tool.setuptools.packages.find]
+include = ["bababel", "bababel.*"]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
