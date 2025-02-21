@@ -29,6 +29,7 @@ upload: build
 test:
 	 pytest --maxfail=1 --disable-warnings --cov=bababel --cov-report=term-missing:skip-covered --cov-fail-under=90 --color=yes --durations=10
 
+.PHONY: clean
 clean:
 	rm -rf __pycache__/ build/ dist/ *.egg-info .pytest_cache .coverage
 	find . -name "*.pyc" -delete
