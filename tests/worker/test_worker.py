@@ -33,7 +33,7 @@ class TestWorker:
         # WHEN
         sut.consume_bind(queue_callback_bind=bind)
         # THEN
-        assert sut._connection == mock_conn.return_value
+        assert sut.connection == mock_conn.return_value
 
     def test_should_declare_queue_with_correct_params(self, sut, binds, mock_conn):
         # GIVEN
