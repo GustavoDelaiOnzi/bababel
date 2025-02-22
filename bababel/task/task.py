@@ -2,10 +2,13 @@ import re
 
 from abc import ABC, abstractmethod
 
+from bababel import Consumer
+from bababel.abstracts.consumer import IConsumer
 from bababel.bababel_app import BababelApp
+from bababel.utils.singleton import SingletonMeta
 
 
-class Task(ABC):
+class Task(ABC, metaclass=SingletonMeta):
     """
     Abstract base class for defining asynchronous tasks.
 
@@ -40,12 +43,14 @@ class Task(ABC):
 
         return instance
 
-    def __init__(self, app: BababelApp):
+    def __init__(self, app: BababelApp, consumer: IConsumer = Consumer):
         """
         Args:
             app (BababelApp): The app to be assigned to the instance.
+            consumer (IConsumer): The consumer that will process the tasks.
         """
         self.app = app
+        self.consumer = consumer
 
     def __call__(self, *args, **kwargs):
         """Allows the instance to be called like a function."""
