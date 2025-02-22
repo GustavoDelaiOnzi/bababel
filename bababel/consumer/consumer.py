@@ -6,9 +6,9 @@ from bababel.dataclasses.queue_callback_bind import QueueCallbackBind
 from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 
-class Worker:
+class Consumer:
     """
-    Worker class responsible for consuming messages from RabbitMQ queues.
+    Consumer class responsible for consuming messages from RabbitMQ queues.
 
     This class establishes a connection to RabbitMQ using the RabbitMQClient,
     binds queues to their respective callback functions, and starts consuming messages.
@@ -28,7 +28,7 @@ class Worker:
         queue_callback_binds: Optional[List[QueueCallbackBind]] = None,
     ):
         """
-        Initializes the Worker instance and establishes a RabbitMQ connection.
+        Initializes the Consumer instance and establishes a RabbitMQ connection.
 
         Args:
             host (str): The RabbitMQ server hostname or IP address.

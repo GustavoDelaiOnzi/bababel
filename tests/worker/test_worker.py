@@ -1,11 +1,11 @@
 import pytest
 
-from bababel import Worker
+from bababel import Consumer
 
 
 @pytest.fixture(autouse=True)
 def mock_client(mocker):
-    yield mocker.patch("bababel.worker.worker.RabbitMQClient")
+    yield mocker.patch("bababel.consumer.consumer.RabbitMQClient")
 
 
 class TestWorker:
@@ -17,7 +17,7 @@ class TestWorker:
 
     @pytest.fixture
     def sut(self):
-        return Worker(host=self.host, port=self.port, username=self.username, password=self.password)
+        return Consumer(host=self.host, port=self.port, username=self.username, password=self.password)
 
     @pytest.fixture
     def mock_conn(self, mock_client):

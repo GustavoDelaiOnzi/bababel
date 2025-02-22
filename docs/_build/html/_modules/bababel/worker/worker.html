@@ -40,9 +40,9 @@
 
 <div class="viewcode-block" id="Worker">
 <a class="viewcode-back" href="../../../docs/source/bababel.worker.html#bababel.worker.worker.Worker">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Worker</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Consumer</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Worker class responsible for consuming messages from RabbitMQ queues.</span>
+<span class="sd">    Consumer class responsible for consuming messages from RabbitMQ queues.</span>
 
 <span class="sd">    This class establishes a connection to RabbitMQ using the RabbitMQClient,</span>
 <span class="sd">    binds queues to their respective callback functions, and starts consuming messages.</span>
@@ -62,7 +62,7 @@
         <span class="n">queue_callback_binds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">QueueCallbackBind</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initializes the Worker instance and establishes a RabbitMQ connection.</span>
+<span class="sd">        Initializes the Consumer instance and establishes a RabbitMQ connection.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            host (str): The RabbitMQ server hostname or IP address.</span>

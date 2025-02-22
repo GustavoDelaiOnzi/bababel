@@ -1,3 +1,3 @@
-from bababel.worker.worker import Worker
+from bababel.consumer.consumer import Consumer
 
-__all__ = ["Worker"]
+__all__ = ["Consumer"]
