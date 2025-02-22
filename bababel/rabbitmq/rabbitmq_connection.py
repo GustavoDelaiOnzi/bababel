@@ -1,6 +1,7 @@
 from pika.adapters.blocking_connection import (BlockingChannel,
                                                BlockingConnection)
 from pika.connection import ConnectionParameters
+from pika.spec import BasicProperties
 
 from bababel.abstracts.connection import IConnection
 
@@ -55,3 +56,9 @@ class RabbitMQConnection(IConnection):
 
     def process_events(self):
         return self.conn.process_data_events()
+
+    def publish(self, exchange: str, routing_key: str, body: str | bytes, properties: BasicProperties = None):
+        return self.channel.basic_publish(exchange=exchange,
+                                          routing_key=routing_key,
+                                          body=body,
+                                          properties=properties)
