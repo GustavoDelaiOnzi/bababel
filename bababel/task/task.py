@@ -2,13 +2,15 @@ import re
 
 from abc import ABC, abstractmethod
 
+from bababel.bababel_app import BababelApp
+
 
 class Task(ABC):
     """
     Abstract base class for defining asynchronous tasks.
 
     This class enforces the structure for task execution by requiring subclasses
-    to implement the `run` method and define a `handler` attribute.
+    to implement the `run` method and define a `app` attribute.
 
     Example:
         Creating and executing a task:
@@ -17,7 +19,7 @@ class Task(ABC):
             def run(*args, **kwargs):
                 print('Hello World')
 
-        task = HelloWorld(handler="example")
+        task = HelloWorld(app="example")
         task.run(*args, **kwargs)
 
         Alternatively, you can call the task instance directly:
@@ -31,9 +33,6 @@ class Task(ABC):
     def __new__(cls, *args, **kwargs):
         """
         Creates a new instance of a Task subclass.
-
-        Ensures that the subclass has a `handler` attribute and automatically
-        sets the `name` attribute.
         """
         instance = super().__new__(cls)
         cls.name = re.sub(r'(?<!^)(?=[A-Z])', '_', cls.__name__).lower()  # Converts to snake case
@@ -41,14 +40,12 @@ class Task(ABC):
 
         return instance
 
-    def __init__(self, handler: str):
+    def __init__(self, app: BababelApp):
         """
-        Initialize the object with a handler.
-
         Args:
-            handler (str): The handler string to be assigned to the instance.
+            app (BababelApp): The app to be assigned to the instance.
         """
-        self.handler = handler
+        self.app = app
 
     def __call__(self, *args, **kwargs):
         """Allows the instance to be called like a function."""
