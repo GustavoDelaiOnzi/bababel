@@ -28,5 +28,8 @@ class IConnection(ABC):
         raise NotImplementedError()
 
     @abstractmethod
-    def process_events(self, *args, **kwargs):
+    def process_events(self, *args, **kwargs) -> None:
+        """
+        Starts consuming the messages.
+        """
         raise NotImplementedError()
