@@ -1,0 +1,60 @@
+import re
+
+from abc import ABC, abstractmethod
+
+
+class Task(ABC):
+    """
+    Abstract base class for defining asynchronous tasks.
+
+    This class enforces the structure for task execution by requiring subclasses
+    to implement the `run` method and define a `handler` attribute.
+
+    Example:
+        Creating and executing a task:
+
+        class HelloWorld(Task)
+            def run(*args, **kwargs):
+                print('Hello World')
+
+        task = HelloWorld(handler="example")
+        task.run(*args, **kwargs)
+
+        Alternatively, you can call the task instance directly:
+
+        task(*args, **kwargs)
+
+    Attributes:
+        name (str): The class name, set dynamically. It is also the identifier of the task and must be unique.
+    """
+
+    def __new__(cls, *args, **kwargs):
+        """
+        Creates a new instance of a Task subclass.
+
+        Ensures that the subclass has a `handler` attribute and automatically
+        sets the `name` attribute.
+        """
+        instance = super().__new__(cls)
+        cls.name = re.sub(r'(?<!^)(?=[A-Z])', '_', cls.__name__).lower()  # Converts to snake case
+        # TODO: make a utils function
+
+        return instance
+
+    def __init__(self, handler: str):
+        """
+        Initialize the object with a handler.
+
+        Args:
+            handler (str): The handler string to be assigned to the instance.
+        """
+        self.handler = handler
+
+    def __call__(self, *args, **kwargs):
+        """Allows the instance to be called like a function."""
+        self.run(*args, **kwargs)
+
+    @abstractmethod
+    def run(self, *args, **kwargs):
+        """The main process of the task."""
+        ...
