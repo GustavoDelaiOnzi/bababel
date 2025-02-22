@@ -54,4 +54,4 @@ class Task(ABC):
     @abstractmethod
     def run(self, *args, **kwargs):
         """The main process of the task."""
-        ...
+        raise NotImplementedError()
