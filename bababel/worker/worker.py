@@ -42,9 +42,9 @@ class Worker:
         self.connection: IConnection = self.client.connect(host=host, port=port, username=username, password=password)
         self.queue_callback_binds = queue_callback_binds or []
 
-    def consume_bind(self, queue_callback_bind: QueueCallbackBind) -> None:
+    def declare_bind(self, queue_callback_bind: QueueCallbackBind) -> None:
         """
-        Declares a queue and starts consuming messages from it using a specified callback function.
+        Declares a queue using a specified callback function.
 
         Args:
             queue_callback_bind (QueueCallbackBind):
@@ -54,7 +54,6 @@ class Worker:
         self.connection.basic_consume(
             queue=queue_callback_bind.queue, on_message_callback=queue_callback_bind.callback
         )
-        self.connection.start_consuming()
 
     def start(self):
         self.connection.process_events()

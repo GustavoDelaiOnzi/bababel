@@ -31,7 +31,7 @@ class TestWorker:
         # GIVEN
         bind = binds[0]
         # WHEN
-        sut.consume_bind(queue_callback_bind=bind)
+        sut.declare_bind(queue_callback_bind=bind)
         # THEN
         assert sut.connection == mock_conn.return_value
 
@@ -40,7 +40,7 @@ class TestWorker:
         mock_declare = mock_conn.return_value.queue_declare
         bind = binds[0]
         # WHEN
-        sut.consume_bind(queue_callback_bind=bind)
+        sut.declare_bind(queue_callback_bind=bind)
         # THEN
         mock_declare.assert_called_once_with(queue=bind.queue, durable=True)
 
@@ -49,23 +49,14 @@ class TestWorker:
         mock_basic_consume = mock_conn.return_value.basic_consume
         bind = binds[0]
         # WHEN
-        sut.consume_bind(queue_callback_bind=bind)
+        sut.declare_bind(queue_callback_bind=bind)
         # THEN
         mock_basic_consume.assert_called_once_with(queue=bind.queue, on_message_callback=bind.callback)
-
-    def test_should_start_consuming(self, sut, binds, mock_conn):
-        # GIVEN
-        mock_start_consuming = mock_conn.return_value.start_consuming
-        bind = binds[0]
-        # WHEN
-        sut.consume_bind(queue_callback_bind=bind)
-        # THEN
-        mock_start_consuming.assert_called_once_with()
 
     def test_should_return_none_on_consume(self, sut, binds):
         # GIVEN
         bind = binds[0]
         # WHEN
-        response = sut.consume_bind(queue_callback_bind=bind)
+        response = sut.declare_bind(queue_callback_bind=bind)
         # THEN
         assert response is None
