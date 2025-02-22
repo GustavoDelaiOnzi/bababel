@@ -1,10 +1,15 @@
+from bababel.abstracts.publisher import IPublisher
+from bababel.bababel_app import BababelApp
 from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 
-class Publisher:
-    def __init__(self, host: str, port: int, username: str, password: str):
+class Publisher(IPublisher):
+    def __init__(self, app: BababelApp):
         self.client = RabbitMQClient()
-        self.connection = self.client.connect(host=host, port=port, username=username, password=password)
+        self.connection = self.client.connect(host=app.host,
+                                              port=app.port,
+                                              username=app.username,
+                                              password=app.password)
 
     def publish(self):
         raise NotImplementedError()
