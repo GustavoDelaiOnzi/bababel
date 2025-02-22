@@ -1,6 +1,6 @@
 ## Short Term Tasks
 
-- [ ] Add short term tasks
+- [ ] Add docstring to process_events methods
 
 ## Long Term Tasks
 

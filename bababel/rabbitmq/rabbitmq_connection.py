@@ -52,3 +52,6 @@ class RabbitMQConnection(IConnection):
         This method enters an infinite loop, listening for messages.
         """
         return self.channel.start_consuming()
+
+    def process_events(self):
+        return self.conn.process_data_events()

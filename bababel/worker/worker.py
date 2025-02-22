@@ -55,3 +55,6 @@ class Worker:
             queue=queue_callback_bind.queue, on_message_callback=queue_callback_bind.callback
         )
         self.connection.start_consuming()
+
+    def start(self):
+        self.connection.process_events()

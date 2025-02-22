@@ -26,3 +26,7 @@ class IConnection(ABC):
         Start consuming messages from the queue.
         """
         raise NotImplementedError()
+
+    @abstractmethod
+    def process_events(self, *args, **kwargs):
+        raise NotImplementedError()
