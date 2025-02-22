@@ -1,3 +1,16 @@
+## Unreleased
+
+### Feat
+
+- add Task class
+- WIP publisher
+- **worker**: change consume_bind to declare_bind
+- **worker**: add start method
+
+### Refactor
+
+- change name Wokrer -> Consumer
+
 ## 0.3.3 (2025-02-20)
 
 ### Fix
