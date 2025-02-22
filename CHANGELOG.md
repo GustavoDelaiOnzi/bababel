@@ -2,6 +2,9 @@
 
 ### Feat
 
+- **task**: implement Singleton pattern in Task class and add consumer parameter
+- **consumer**: implement IConsumer interface in Consumer class
+- **pre-commit**: add Commitizen changelog hook to pre-commit configuration
 - **publisher**: implement IPublisher interface in Publisher class
 - create BababelApp object
 - add Task class
@@ -11,6 +14,7 @@
 
 ### Fix
 
+- **task**: raise NotImplementedError in run method of abstract class
 - **task**: add __init__.py
 
 ### Refactor
