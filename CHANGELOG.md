@@ -2,13 +2,20 @@
 
 ### Feat
 
+- **publisher**: implement IPublisher interface in Publisher class
+- create BababelApp object
 - add Task class
 - WIP publisher
 - **worker**: change consume_bind to declare_bind
 - **worker**: add start method
 
+### Fix
+
+- **task**: add __init__.py
+
 ### Refactor
 
+- **tests**: simplify RabbitMQClient test methods
 - change name Wokrer -> Consumer
 
 ## 0.3.3 (2025-02-20)
