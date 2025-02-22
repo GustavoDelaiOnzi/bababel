@@ -2,11 +2,12 @@ from typing import List, Optional
 
 from bababel.abstracts.client import IClient
 from bababel.abstracts.connection import IConnection
+from bababel.abstracts.consumer import IConsumer
 from bababel.dataclasses.queue_callback_bind import QueueCallbackBind
 from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 
-class Consumer:
+class Consumer(IConsumer):
     """
     Consumer class responsible for consuming messages from RabbitMQ queues.
 
