@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 
 from bababel import Consumer
 from bababel.bababel_app import BababelApp
+from bababel.exceptions.base_bababel_error import TaskError
 from bababel.utils.singleton import SingletonMeta
 
 
@@ -69,7 +70,9 @@ class Task(ABC, metaclass=SingletonMeta):
         try:
             sig.bind(*args, **kwargs)
         except TypeError:
-            raise  # TODO: Create bababel exception
+            raise TaskError(f"Invalid arguments: '"
+                            f"'Expected (args: {sig}, kwargs: {kwargs}), '"
+                            f"'got (args: {args}, kwargs: {kwargs}")
 
     def _get_body(self, *args, **kwargs):
         param_names = list(inspect.signature(self.__class__.run).parameters.keys())[1:]
