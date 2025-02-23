@@ -1,14 +1,14 @@
 from pika.connection import ConnectionParameters
 from pika.credentials import PlainCredentials
 
-from bababel.abstracts.client import IClient
 from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
 
 
-class RabbitMQClient(IClient):
+class RabbitMQClient:
     """
     Class responsible for communication with RabbitQ broker.
     """
+
     def connect(self, host: str, port: int, username: str, password: str) -> RabbitMQConnection:
         """
         Establishes a connection to a RabbitMQ broker.
