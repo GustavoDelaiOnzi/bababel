@@ -1,7 +1,8 @@
 ## Short Term Tasks
 
-- [ ] Add docstring to process_events methods
+- [ ] Update docstrings
 - [ ] Consumer receive a parameter called ConnectionParams instead of host, port, username. password 
+- [ ] Update dependencies
 
 ## Long Term Tasks
 
