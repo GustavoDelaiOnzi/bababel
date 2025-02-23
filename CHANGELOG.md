@@ -25,6 +25,7 @@
 
 ### Refactor
 
+- rename test_worker.py to test_consumer.py
 - **consumer**: remove interfaces
 - code convention
 - **publisher**: type hint client attribute as IClient in Publisher class
