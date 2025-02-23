@@ -1,15 +1,18 @@
 # Define variables
-VENV := .venv
-PYTHON := $(VENV)/bin/python
-PIP := $(VENV)/bin/pip
-TWINE := $(VENV)/bin/twine
+VERSION := 3.13.2
+PROJECT:= bababel
+VENV := $(PROJECT)-$(VERSION)
+PYTHON_BIN = $(shell pyenv root)/versions/$(VENV)/bin
+TWINE := $(PYTHON_BIN)/bin/twine
+PIP = $(PYTHON_BIN)/pip
 
 # Create virtual environment
 .PHONY: create-venv
 create-venv:
-	rm -rf $(VENV)
-	python3 -m venv $(VENV)
-	$(PIP) install --upgrade pip setuptools wheel build twine
+	pyenv install -s $(VERSION)
+	pyenv uninstall -f $(VENV)
+	pyenv virtualenv $(VERSION) $(VENV)
+	$(PIP) install --upgrade pip
 	$(PIP) install .[dev]
 
 
