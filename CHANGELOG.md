@@ -2,6 +2,9 @@
 
 ### Feat
 
+- **task**: raise TaskError for invalid argument types in signature binding
+- **exceptions**: add TaskError exception class extending BababelError
+- **exceptions**: add BababelError base exception class
 - **publisher**: enhance Publisher class with publish method and refactor initialization
 - **task**: implement Singleton pattern in Task class and add consumer parameter
 - **consumer**: implement IConsumer interface in Consumer class
@@ -15,6 +18,7 @@
 
 ### Fix
 
+- fix circular import of babebel app and publisher
 - **pre-commit**: remove local cz-changelog hook from pre-commit configuration
 - **task**: raise NotImplementedError in run method of abstract class
 - **task**: add __init__.py
