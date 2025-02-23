@@ -2,6 +2,7 @@
 
 ### Feat
 
+- **publisher**: enhance Publisher class with publish method and refactor initialization
 - **task**: implement Singleton pattern in Task class and add consumer parameter
 - **consumer**: implement IConsumer interface in Consumer class
 - **pre-commit**: add Commitizen changelog hook to pre-commit configuration
@@ -14,11 +15,15 @@
 
 ### Fix
 
+- **pre-commit**: remove local cz-changelog hook from pre-commit configuration
 - **task**: raise NotImplementedError in run method of abstract class
 - **task**: add __init__.py
 
 ### Refactor
 
+- **consumer**: remove interfaces
+- code convention
+- **publisher**: type hint client attribute as IClient in Publisher class
 - **tests**: simplify RabbitMQClient test methods
 - change name Wokrer -> Consumer
 
