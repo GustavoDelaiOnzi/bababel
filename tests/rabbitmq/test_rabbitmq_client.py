@@ -1,4 +1,5 @@
 import pytest
+
 from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 

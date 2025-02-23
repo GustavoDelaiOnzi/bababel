@@ -1,4 +1,4 @@
-from abc import abstractmethod, ABC
+from abc import ABC, abstractmethod
 
 from bababel.dataclasses.queue_callback_bind import QueueCallbackBind
 
