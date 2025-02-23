@@ -2,6 +2,7 @@ import pytest
 
 from bababel.bababel_app import BababelApp
 
+
 @pytest.fixture(autouse=True)
 def mock_publisher(mocker):
     yield mocker.patch('bababel.bababel_app.Publisher')
