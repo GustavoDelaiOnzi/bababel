@@ -1,9 +1,8 @@
-from bababel.bababel_app import BababelApp
 from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 
 class Publisher:
-    def __init__(self, app: BababelApp):
+    def __init__(self, app):
         self.client = RabbitMQClient()
         self.connection = self.client.connect(host=app.host,
                                               port=app.port,
