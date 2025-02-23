@@ -46,3 +46,7 @@ code-convention:
 .PHONY: code-convention
 run-rabbit:
 	@docker start rabbitmq 2>/dev/null || docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
+
+amend-changelog:
+	git add CHANGELOG.md
+	git commit --amend --no-edit
