@@ -46,3 +46,9 @@ class TestWorker:
         sut.connection.queue_declare.assert_called_once_with(queue=bind.queue, durable=True)
         sut.connection.basic_consume.assert_called_once_with(queue=bind.queue, on_message_callback=bind.callback)
         assert response is None
+
+    def test_should_start(self, sut):
+        response = sut.start()
+
+        assert response is None
+        sut.connection.process_events.assert_called_once_with()
