@@ -1,9 +1,8 @@
+import inspect
 import re
-
 from abc import ABC, abstractmethod
 
 from bababel import Consumer
-from bababel.abstracts.consumer import IConsumer
 from bababel.bababel_app import BababelApp
 from bababel.utils.singleton import SingletonMeta
 
@@ -43,11 +42,11 @@ class Task(ABC, metaclass=SingletonMeta):
 
         return instance
 
-    def __init__(self, app: BababelApp, consumer: IConsumer = Consumer):
+    def __init__(self, app: BababelApp, consumer=Consumer):
         """
         Args:
             app (BababelApp): The app to be assigned to the instance.
-            consumer (IConsumer): The consumer that will process the tasks.
+            consumer (Consumer): The consumer that will process the tasks.
         """
         self.app = app
         self.consumer = consumer
@@ -60,3 +59,20 @@ class Task(ABC, metaclass=SingletonMeta):
     def run(self, *args, **kwargs):
         """The main process of the task."""
         raise NotImplementedError()
+
+    def send(self, *args, **kwargs):
+        self._inspect_arguments(*args, **kwargs)
+        self.app.publisher.publish(task_name=self.name, body=self._get_body(*args, **kwargs))
+
+    def _inspect_arguments(self, *args, **kwargs):
+        sig = inspect.signature(self.run)
+        try:
+            sig.bind(*args, **kwargs)
+        except TypeError:
+            raise  # TODO: Create bababel exception
+
+    def _get_body(self, *args, **kwargs):
+        param_names = list(inspect.signature(self.__class__.run).parameters.keys())[1:]
+        args_dict = {name: value for name, value in zip(param_names, args)}
+        args_dict.update(kwargs)
+        return args_dict
