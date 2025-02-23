@@ -3,10 +3,8 @@ from pika.adapters.blocking_connection import (BlockingChannel,
 from pika.connection import ConnectionParameters
 from pika.spec import BasicProperties
 
-from bababel.abstracts.connection import IConnection
 
-
-class RabbitMQConnection(IConnection):
+class RabbitMQConnection:
     """
     RabbitMQConnection is a wrapper around pika's BlockingConnection to manage RabbitMQ communication.
 

@@ -1,13 +1,10 @@
 from typing import List, Optional
 
-from bababel.abstracts.client import IClient
-from bababel.abstracts.connection import IConnection
-from bababel.abstracts.consumer import IConsumer
 from bababel.dataclasses.queue_callback_bind import QueueCallbackBind
 from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 
-class Consumer(IConsumer):
+class Consumer:
     """
     Consumer class responsible for consuming messages from RabbitMQ queues.
 
@@ -16,7 +13,7 @@ class Consumer(IConsumer):
 
     Attributes:
         client (IClient): The RabbitMQ client used to establish a connection.
-        connection (IConnection): The established connection to RabbitMQ.
+        connection (RabbitMQConnection): The established connection to RabbitMQ.
         queue_callback_binds (List[QueueCallbackBind]): A list of queue-to-callback bindings.
     """
 
@@ -39,8 +36,8 @@ class Consumer(IConsumer):
             queue_callback_binds (Optional[List[QueueCallbackBind]]):
                 A list of QueueCallbackBind objects containing queue names and their callbacks.
         """
-        self.client: IClient = RabbitMQClient()
-        self.connection: IConnection = self.client.connect(host=host, port=port, username=username, password=password)
+        self.client: RabbitMQClient = RabbitMQClient()
+        self.connection = self.client.connect(host=host, port=port, username=username, password=password)
         self.queue_callback_binds = queue_callback_binds or []
 
     def declare_bind(self, queue_callback_bind: QueueCallbackBind) -> None:
