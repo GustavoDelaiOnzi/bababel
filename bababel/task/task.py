@@ -51,10 +51,6 @@ class Task(ABC):  # find a way for this to be sigleton or other thing that works
         self.app = app
         self.consumer = consumer
 
-    def __call__(self, *args, **kwargs):
-        """Allows the instance to be called like a function."""
-        self.run(*args, **kwargs)
-
     @abstractmethod
     def run(self, *args, **kwargs):
         """The main process of the task."""
