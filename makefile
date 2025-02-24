@@ -30,7 +30,7 @@ upload: build
 # Run all tests
 .PHONY: test
 test:
-	 pytest --maxfail=1 --disable-warnings --cov=bababel --cov-report=term-missing:skip-covered --cov-fail-under=90 --color=yes --durations=10
+	 pytest --cov=bababel --cov-report=term-missing:skip-covered --cov-fail-under=100 --color=yes --durations=10
 
 .PHONY: clean
 clean:
