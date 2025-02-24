@@ -47,15 +47,13 @@ code-convention:
 run-rabbit:
 	@docker start rabbitmq 2>/dev/null || docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 
-c:
+ch:
 	cz ch
 	git add CHANGELOG.md
-	# Count the number of added lines
-	ADDED_LINES=$(git diff --cached --numstat | awk '{print $1}' | paste -sd+ - | bc); \
-	if [ "$$ADDED_LINES" -eq 1 ]; then \
-		git commit --amend --no-edit; \
-		echo "✅ Commit amended with 1 added line."; \
-	else \
-		echo "❌ Commit blocked! Only one line addition is allowed."; \
-		exit 1; \
-	fi
+	git commit --amend --no-edit
+
+c:
+	cz c
+	cz ch
+	git add CHANGELOG.md
+	git commit --amend --no-edit
