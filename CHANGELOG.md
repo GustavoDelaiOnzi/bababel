@@ -2,6 +2,7 @@
 
 ### Feat
 
+- **utils**: add __init__.py to the package
 - **task**: raise TaskError for invalid argument types in signature binding
 - **exceptions**: add TaskError exception class extending BababelError
 - **exceptions**: add BababelError base exception class
