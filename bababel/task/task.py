@@ -64,10 +64,28 @@ class Task(ABC):  # find a way for this to be sigleton or other thing that works
         sig = inspect.signature(self.run)
         try:
             sig.bind(*args, **kwargs)
-        except TypeError:
-            raise TaskError(f"Invalid arguments: '"
-                            f"'Expected (args: {sig}, kwargs: {kwargs}), '"
-                            f"'got (args: {args}, kwargs: {kwargs}")
+        except TypeError as e:
+            # Build a string for the expected parameters and their annotations
+            expected_params = ', '.join(
+                f"{name}: {param.annotation.__name__}"
+                for name, param in sig.parameters.items()
+            )
+            # Build a string for the received positional args
+            received_args = ', '.join(
+                f"{name}: {value}"
+                for name, value in zip(sig.parameters, args)
+            )
+            # Build a string for the received keyword args
+            received_kwargs = ', '.join(
+                f"{key}: {value}"
+                for key, value in kwargs.items()
+            )
+            # Raise an error with a clear diagnostic message
+            raise TaskError(
+                "Invalid arguments: "
+                f"Expected (parameters: {expected_params}), "
+                f"got (args: {received_args}, kwargs: {received_kwargs})"
+            ) from e
 
     def _get_body(self, *args, **kwargs):
         param_names = list(inspect.signature(self.__class__.run).parameters.keys())[1:]
