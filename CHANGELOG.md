@@ -19,6 +19,7 @@
 
 ### Fix
 
+- **exceptions**: initialize module with __init__.py
 - fix circular import of babebel app and publisher
 - **pre-commit**: remove local cz-changelog hook from pre-commit configuration
 - **task**: raise NotImplementedError in run method of abstract class
