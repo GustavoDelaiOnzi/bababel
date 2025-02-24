@@ -20,6 +20,7 @@
 
 ### Fix
 
+- **task**: improve error handling for invalid arguments in Task.run method
 - **exceptions**: initialize module with __init__.py
 - fix circular import of babebel app and publisher
 - **pre-commit**: remove local cz-changelog hook from pre-commit configuration
