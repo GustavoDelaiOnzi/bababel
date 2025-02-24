@@ -1,6 +1,7 @@
 from unittest.mock import MagicMock, Mock
 
 import pytest
+from pika.spec import BasicProperties
 
 from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
 
@@ -45,3 +46,15 @@ class TestRabbitMQConnection:
 
         sut.channel.start_consuming.assert_called_once_with()
         assert response == sut.channel.start_consuming.return_value
+
+    def test_process_events(self, sut):
+        sut.process_events()
+
+        sut.conn.process_data_events.assert_called_once_with()
+
+    def test_publish(self, sut):
+        prop = BasicProperties()
+        sut.publish(exchange='xpto', routing_key='xpto2', body='xpto3', properties=prop)
+
+        sut.channel.basic_publish.assert_called_once_with(exchange='xpto', routing_key='xpto2', body='xpto3',
+                                                          properties=prop)
