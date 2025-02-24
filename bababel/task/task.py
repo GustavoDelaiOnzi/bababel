@@ -5,10 +5,9 @@ from abc import ABC, abstractmethod
 from bababel import Consumer
 from bababel.bababel_app import BababelApp
 from bababel.exceptions.base_bababel_error import TaskError
-from bababel.utils.singleton import SingletonMeta
 
 
-class Task(ABC, metaclass=SingletonMeta):
+class Task(ABC):  # find a way for this to be sigleton or other thing that works
     """
     Abstract base class for defining asynchronous tasks.
 
