@@ -27,6 +27,7 @@
 
 ### Refactor
 
+- **task**: remove SingletonMeta from Task class definition
 - rename test_worker.py to test_consumer.py
 - **consumer**: remove interfaces
 - code convention
