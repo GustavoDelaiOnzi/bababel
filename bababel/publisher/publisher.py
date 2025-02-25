@@ -10,8 +10,12 @@ class Publisher:
                                               username=app.username,
                                               password=app.password)
         self.app = app
+        self.exchange()
 
     def publish(self, task_name: str, body: dict):
         self.connection.publish(exchange=self.app.identifier,
                                 routing_key=task_name,
                                 body=dict_to_bytes(body))
+
+    def exchange(self):
+        self.connection.declare_exchange(exchange=self.app.identifier)

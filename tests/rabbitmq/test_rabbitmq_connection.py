@@ -58,3 +58,8 @@ class TestRabbitMQConnection:
 
         sut.channel.basic_publish.assert_called_once_with(exchange='xpto', routing_key='xpto2', body='xpto3',
                                                           properties=prop)
+
+    def test_declare_exchange(self, sut):
+        sut.declare_exchange(exchange='xpto')
+
+        sut.channel.exchange_declare.assert_called_once_with(exchange='xpto')
