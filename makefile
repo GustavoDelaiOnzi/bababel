@@ -5,6 +5,7 @@ VENV := $(PROJECT)-$(VERSION)
 PYTHON_BIN = $(shell pyenv root)/versions/$(VENV)/bin
 TWINE := $(PYTHON_BIN)/twine
 PIP = $(PYTHON_BIN)/pip
+PYTHON = $(PYTHON_BIN)/python3
 
 # Create virtual environment
 .PHONY: create-venv
