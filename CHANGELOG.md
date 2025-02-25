@@ -2,6 +2,7 @@
 
 ### Feat
 
+- **publisher**: add exchange declaration on publisher initialization
 - **task**: remove callable interface from Task class
 - **utils**: add __init__.py to the package
 - **task**: raise TaskError for invalid argument types in signature binding
@@ -20,6 +21,7 @@
 
 ### Fix
 
+- **publisher**: send correct type to pika's basic_publish
 - **task**: improve error handling for invalid arguments in Task.run method
 - **exceptions**: initialize module with __init__.py
 - fix circular import of babebel app and publisher
