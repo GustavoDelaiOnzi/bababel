@@ -1,4 +1,5 @@
 from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
+from utils.utils import dict_to_bytes
 
 
 class Publisher:
@@ -10,7 +11,7 @@ class Publisher:
                                               password=app.password)
         self.app = app
 
-    def publish(self, task_name: str, body: str | bytes):
+    def publish(self, task_name: str, body: dict):
         self.connection.publish(exchange=self.app.identifier,
                                 routing_key=task_name,
-                                body=body)
+                                body=dict_to_bytes(body))
