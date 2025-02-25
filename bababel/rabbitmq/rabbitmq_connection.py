@@ -60,3 +60,6 @@ class RabbitMQConnection:
                                           routing_key=routing_key,
                                           body=body,
                                           properties=properties)
+
+    def declare_exchange(self, exchange: str):
+        self.channel.exchange_declare(exchange=exchange)
