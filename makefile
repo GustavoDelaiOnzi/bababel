@@ -3,7 +3,7 @@ VERSION := 3.13.2
 PROJECT:= bababel
 VENV := $(PROJECT)-$(VERSION)
 PYTHON_BIN = $(shell pyenv root)/versions/$(VENV)/bin
-TWINE := $(PYTHON_BIN)/bin/twine
+TWINE := $(PYTHON_BIN)/twine
 PIP = $(PYTHON_BIN)/pip
 
 # Create virtual environment
