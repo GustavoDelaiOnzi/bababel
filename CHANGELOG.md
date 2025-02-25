@@ -1,4 +1,4 @@
-## Unreleased
+## 0.4.0 (2025-02-24)
 
 ### Feat
 
@@ -15,7 +15,7 @@
 - **publisher**: implement IPublisher interface in Publisher class
 - create BababelApp object
 - add Task class
-- WIP publisher
+- **publisher**: add publisher class
 - **worker**: change consume_bind to declare_bind
 - **worker**: add start method
 
