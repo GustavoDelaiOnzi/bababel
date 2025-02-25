@@ -16,7 +16,7 @@ class TestPublisher:
         return Publisher(app=MagicMock())
 
     def test_should_publish(self, sut, mock_connect):
-        sut.publish(task_name='xpto', body=b'xpto')
+        sut.publish(task_name='xpto', body={'xpto': 'xpto'})
         sut.connection.publish.assert_called_once_with(exchange=sut.app.identifier,
                                                        routing_key='xpto',
-                                                       body=b'xpto')
+                                                       body=b'{"xpto": "xpto"}')
