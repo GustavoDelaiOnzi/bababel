@@ -1,3 +1,9 @@
+## 0.4.1 (2025-02-25)
+
+### Fix
+
+- **utils**: change utils to the right dir
+
 ## 0.4.0 (2025-02-24)
 
 ### Feat
