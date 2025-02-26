@@ -10,8 +10,8 @@ Example usage:
 
     # Sample Bababel Task
     class SampleTask(Task):
-        def run(self, xpto):
-            return xpto
+        def run(self, message: str, code: int):
+            return message
 
     # Declare the BababelApp
     app = BababelApp(host='localhost',
