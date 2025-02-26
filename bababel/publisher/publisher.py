@@ -1,5 +1,5 @@
 from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
-from utils.utils import dict_to_bytes
+from bababel.utils.utils import dict_to_bytes
 
 
 class Publisher:
