@@ -9,3 +9,7 @@ class BababelError(Exception):
 
 class TaskError(BababelError):
     pass
+
+
+class MessageRouterException(BababelError):
+    pass

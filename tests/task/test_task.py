@@ -2,7 +2,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from bababel.exceptions.base_bababel_error import TaskError
+from bababel.exceptions.exceptions import TaskError
 from bababel.task.task import Task
 
 
@@ -28,7 +28,7 @@ class TestTask:
 
         sut.send('xpto', message2='xpto2')
 
-        sut.app.publisher.publish.assert_called_once_with(task_name=sut.name, body=body)
+        sut.app.router.publish.assert_called_once_with(task=sut, event=body)
 
     def test_should_raise_send(self, sut):
         with pytest.raises(TaskError) as exc:
