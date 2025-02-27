@@ -2,7 +2,6 @@ import inspect
 import re
 from abc import ABC, abstractmethod
 
-from bababel.consumer import Consumer
 from bababel.tasks.exceptions import TaskError
 
 
@@ -41,14 +40,13 @@ class Task(ABC):  # find a way for this to be sigleton or other thing that works
 
         return instance
 
-    def __init__(self, app, consumer=Consumer):
+    def __init__(self, app):
         """
         Args:
             app (BababelApp): The app to be assigned to the instance.
             consumer (Consumer): The consumer that will process the tasks.
         """
         self.app = app
-        self.consumer = consumer
 
     @abstractmethod
     def run(self, *args, **kwargs):
