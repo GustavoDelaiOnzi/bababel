@@ -2,15 +2,15 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from bababel.exceptions.exceptions import MessageRouterException
-from bababel.message_router import MessageRouter
-from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
+from bababel.rabbitmq.connection import RabbitMQConnection
+from bababel.routers.exceptions import MessageRouterException
+from bababel.routers.message_router import MessageRouter
 
 
 class TestMessageRouter:
     @pytest.fixture
     def sut(self, mocker):
-        mocker.patch('bababel.message_router.message_router.RabbitMQPublisher')
+        mocker.patch('bababel.routers.message_router.RabbitMQPublisher')
         yield MessageRouter(connection=MagicMock(spec=RabbitMQConnection), identifier='xpto')
 
     def test_should_publish(self, sut):

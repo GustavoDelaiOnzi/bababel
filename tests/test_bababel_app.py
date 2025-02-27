@@ -1,16 +1,16 @@
 import pytest
 
-from bababel.bababel_app import BababelApp
+from bababel.app import BababelApp
 
 
 @pytest.fixture(autouse=True)
 def mock_publisher(mocker):
-    yield mocker.patch('bababel.bababel_app.MessageRouter')
+    yield mocker.patch('bababel.app.MessageRouter')
 
 
 @pytest.fixture(autouse=True)
 def mock_client(mocker):
-    yield mocker.patch('bababel.bababel_app.RabbitMQClient')
+    yield mocker.patch('bababel.app.RabbitMQClient')
 
 
 class TestBababelApp:
