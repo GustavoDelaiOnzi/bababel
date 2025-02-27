@@ -2,7 +2,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from bababel.exceptions import TaskError
+from bababel.tasks.exceptions import TaskError
 from bababel.tasks.task import Task
 
 
