@@ -3,12 +3,12 @@ from unittest.mock import MagicMock, Mock
 import pytest
 from pika.spec import BasicProperties
 
-from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
+from bababel.rabbitmq.connection import RabbitMQConnection
 
 
 @pytest.fixture(autouse=True)
 def mock_conn(mocker):
-    yield mocker.patch("bababel.rabbitmq.rabbitmq_connection.BlockingConnection", MagicMock())
+    yield mocker.patch("bababel.rabbitmq.connection.BlockingConnection", MagicMock())
 
 
 class TestRabbitMQConnection:
