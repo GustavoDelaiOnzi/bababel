@@ -1,10 +1,11 @@
 from pika.connection import ConnectionParameters
 from pika.credentials import PlainCredentials
 
+from bababel.abstract.client import IClient
 from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
 
 
-class RabbitMQClient:
+class RabbitMQClient(IClient):
     """
     Class responsible for communication with RabbitQ broker.
     """

@@ -2,9 +2,8 @@ import inspect
 import re
 from abc import ABC, abstractmethod
 
-from bababel import Consumer
-from bababel.bababel_app import BababelApp
-from bababel.exceptions.base_bababel_error import TaskError
+from bababel.consumer import Consumer
+from bababel.exceptions.exceptions import TaskError
 
 
 class Task(ABC):  # find a way for this to be sigleton or other thing that works
@@ -42,7 +41,7 @@ class Task(ABC):  # find a way for this to be sigleton or other thing that works
 
         return instance
 
-    def __init__(self, app: BababelApp, consumer=Consumer):
+    def __init__(self, app, consumer=Consumer):
         """
         Args:
             app (BababelApp): The app to be assigned to the instance.
@@ -58,7 +57,7 @@ class Task(ABC):  # find a way for this to be sigleton or other thing that works
 
     def send(self, *args, **kwargs):
         self._inspect_arguments(*args, **kwargs)
-        self.app.publisher.publish(task_name=self.name, body=self._get_body(*args, **kwargs))
+        self.app.router.publish(task=self, event=self._get_body(*args, **kwargs))
 
     def _inspect_arguments(self, *args, **kwargs):
         sig = inspect.signature(self.run)
