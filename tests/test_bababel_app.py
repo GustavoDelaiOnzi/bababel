@@ -5,7 +5,12 @@ from bababel.bababel_app import BababelApp
 
 @pytest.fixture(autouse=True)
 def mock_publisher(mocker):
-    yield mocker.patch('bababel.bababel_app.Publisher')
+    yield mocker.patch('bababel.bababel_app.MessageRouter')
+
+
+@pytest.fixture(autouse=True)
+def mock_client(mocker):
+    yield mocker.patch('bababel.bababel_app.RabbitMQClient')
 
 
 class TestBababelApp:
