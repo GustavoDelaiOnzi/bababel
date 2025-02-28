@@ -2,7 +2,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from bababel.consumer import Consumer
+from bababel import Consumer
 
 
 @pytest.fixture(autouse=True)
