@@ -1,7 +1,7 @@
 from typing import List, Optional
 
-from bababel.queue_callback_bind import QueueCallbackBind
-from bababel.rabbitmq_client import RabbitMQClient
+from bababel.dataclasses.queue_callback_bind import QueueCallbackBind
+from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 
 class Consumer:

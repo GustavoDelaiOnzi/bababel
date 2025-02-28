@@ -1,21 +1,21 @@
 import pytest
 
-from bababel.rabbitmq.client import RabbitMQClient
+from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 
 @pytest.fixture(autouse=True)
 def mock_credentials(mocker):
-    return mocker.patch("bababel.rabbitmq.client.PlainCredentials")
+    return mocker.patch("bababel.rabbitmq.rabbitmq_client.PlainCredentials")
 
 
 @pytest.fixture(autouse=True)
 def mock_conn_params(mocker):
-    return mocker.patch("bababel.rabbitmq.client.ConnectionParameters")
+    return mocker.patch("bababel.rabbitmq.rabbitmq_client.ConnectionParameters")
 
 
 @pytest.fixture(autouse=True)
 def mock_conn(mocker):
-    return mocker.patch("bababel.rabbitmq.client.RabbitMQConnection")
+    return mocker.patch("bababel.rabbitmq.rabbitmq_client.RabbitMQConnection")
 
 
 class TestRabbitMQClient:

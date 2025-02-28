@@ -2,13 +2,13 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from bababel.app import BababelApp
-from bababel.tasks.task import Task
+from bababel.bababel_app import BababelApp
+from bababel.task.task import Task
 
 
 @pytest.fixture(autouse=True)
 def mock_conn(mocker):
-    yield mocker.patch('bababel.rabbitmq.connection.BlockingConnection', MagicMock())
+    yield mocker.patch('bababel.rabbitmq.rabbitmq_connection.BlockingConnection', MagicMock())
 
 
 class SampleTask(Task):

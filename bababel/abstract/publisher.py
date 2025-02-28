@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from bababel.tasks.task import Task
+from bababel.task.task import Task
 
 
 class IPublisher(ABC):

@@ -1,7 +1,7 @@
-from bababel.abstracts.publisher import IPublisher
-from bababel.rabbitmq.connection import RabbitMQConnection
-from bababel.tasks.task import Task
-from bababel.utils import dict_to_bytes
+from bababel.abstract.publisher import IPublisher
+from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
+from bababel.task.task import Task
+from bababel.utils.utils import dict_to_bytes
 
 
 class RabbitMQPublisher(IPublisher):

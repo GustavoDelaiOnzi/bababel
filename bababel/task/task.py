@@ -3,7 +3,7 @@ import re
 from abc import ABC, abstractmethod
 
 from bababel.consumer import Consumer
-from bababel.tasks.exceptions import TaskError
+from bababel.exceptions.exceptions import TaskError
 
 
 class Task(ABC):  # find a way for this to be sigleton or other thing that works

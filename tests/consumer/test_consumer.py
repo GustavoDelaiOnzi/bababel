@@ -7,7 +7,7 @@ from bababel.consumer import Consumer
 
 @pytest.fixture(autouse=True)
 def mock_client(mocker):
-    yield mocker.patch("bababel.consumer.RabbitMQClient", MagicMock())
+    yield mocker.patch("bababel.consumer.consumer.RabbitMQClient", MagicMock())
 
 
 class TestWorker:

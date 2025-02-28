@@ -2,7 +2,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from bababel.rabbitmq.publisher import RabbitMQPublisher
+from bababel.publisher import RabbitMQPublisher
 
 
 class TestPublisher:

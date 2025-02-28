@@ -1,7 +1,7 @@
 import nanoid
 
-from bababel.rabbitmq.client import RabbitMQClient
-from bababel.routers.message_router import MessageRouter
+from bababel.message_router.message_router import MessageRouter
+from bababel.rabbitmq.rabbitmq_client import RabbitMQClient
 
 
 class BababelApp:

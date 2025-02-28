@@ -1,8 +1,8 @@
 from pika.connection import ConnectionParameters
 from pika.credentials import PlainCredentials
 
-from bababel.abstracts.client import IClient
-from bababel.rabbitmq.connection import RabbitMQConnection
+from bababel.abstract.client import IClient
+from bababel.rabbitmq.rabbitmq_connection import RabbitMQConnection
 
 
 class RabbitMQClient(IClient):
