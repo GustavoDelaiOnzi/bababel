@@ -5,3 +5,7 @@ class BababelError(Exception):
         self.message = message
         self.code = code
         self.details = details
+
+
+class BababelValueError(BababelError):
+    pass
