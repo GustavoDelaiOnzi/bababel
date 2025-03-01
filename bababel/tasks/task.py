@@ -1,14 +1,14 @@
 import inspect
-import re
 from abc import ABC, abstractmethod
 
 from bababel.tasks.exceptions import TaskError
+from bababel.utils import camel_to_snake
 
 
 class Task(ABC):
     def __new__(cls, *args, **kwargs):
         instance = super().__new__(cls)
-        cls.name = re.sub(r'(?<!^)(?=[A-Z])', '_', cls.__name__).lower()
+        cls.name = camel_to_snake(cls.__name__)
         return instance
 
     def __init__(self, app):
