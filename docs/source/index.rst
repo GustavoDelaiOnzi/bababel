@@ -9,10 +9,4 @@ Welcome to Bababel's documentation!
 distributed systems. It simplifies message consumption and task execution, making it ideal for scalable applications
 that require asynchronous processing.
 
-Getting started
---------
-
-.. toctree::
-   :maxdepth: 2
-
-   usage
+.. include:: usage.rst
