@@ -5,6 +5,9 @@ from pika.spec import BasicProperties
 
 
 class RabbitMQConnection:
+    """
+    RabbitMQConnection performs operations on RabbitMQ.
+    """
     def __init__(self, parameters: ConnectionParameters):
         self.conn: BlockingConnection = BlockingConnection(parameters=parameters)
         self.channel: BlockingChannel = self.conn.channel()

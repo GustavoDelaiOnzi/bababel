@@ -7,7 +7,18 @@ from bababel.tasks.task import Task
 
 
 class MessageRouter:
+    """
+    MessageRouter publishes a message to the correct broker based on the connection it receives.
+    For example, if it receives a RabbitMQ connection it publishes the message using the correct Bababel Publisher,
+    in this case `bababel.rabbitmq.publisher.RabbitMQPublisher`
+    """
     def __init__(self, connection, identifier: str):
+        """
+        Creates a instance of MessageRouter object.
+
+        :param connection: A Bababel connection instance.
+        :param identifier: Should be a `bababel.app.BababelApp` instance identifier.
+        """
         self.connection = connection
         self.identifier = identifier
         self._publisher: IPublisher = self.__set_publisher()
@@ -28,4 +39,11 @@ class MessageRouter:
         raise MessageRouterException(f"Couldn't find a broker for the given connection: {self.connection.__str__}")
 
     def publish(self, task: Task, event: dict):
+        """
+        Publish the message to the correct broker based on the received connection.
+
+        :param task:  A `bababel.tasks.task.Task` instance.
+        :param event: The event payload data to publish.
+        :return:
+        """
         return self._publisher.publish(task=task, event=event)
