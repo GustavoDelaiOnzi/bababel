@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "bababel"
 version = "0.4.1"
-description = "A messaging consumer library for handling and processing messages efficiently."
+description = "A task scheduler designed for efficient processing of asynchronous tasks."
 authors = [{name = "Gustavo Delai Onzi Da Silva", email = "gustavodelai11@gmail.com"}]
 license = {text = "MIT"}
 readme = "README.md"

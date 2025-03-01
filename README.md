@@ -1,7 +1,6 @@
-A messaging consumer library for handling and processing messages efficiently.
-It is meant to simplify message publishing and processing.
+A messaging consumer library designed for efficient message handling and processing, simplifying both publishing and consumption.
 
-In the current ver version you can only send tasks to a exchange:
+In the current ver version you can only send tasks:
 
 Example usage:
 
