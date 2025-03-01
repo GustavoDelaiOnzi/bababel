@@ -9,13 +9,7 @@ Welcome to Bababel's documentation!
 distributed systems. It simplifies message consumption and task execution, making it ideal for scalable applications
 that require asynchronous processing.
 
-Why Use Bababel?
-----------------
-- ✅ **Simplifies Asynchronous Processing**: No need to manually manage queues and consumers.
-- ✅ **Decouples Application Components**: Helps in building microservices and event-driven architectures.
-- ✅ **Boosts Performance**: Handles concurrent tasks with ease.
-
-Contents
+Getting started
 --------
 
 .. toctree::

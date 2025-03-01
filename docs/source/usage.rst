@@ -1,8 +1,5 @@
 .. _usage:
 
-Getting started
-===============
-
 Installation
 ------------
 
