@@ -8,7 +8,7 @@ from bababel.utils import camel_to_snake
 class Task(ABC):
     """
     Abstract base class for creating Bababel Tasks.
-    Subclasses must implement the `run` method, which will serve as a template for the `send´ method, responsible
+    Subclasses must implement the `run` method, which will serve as a template for the `send` method, responsible
     for sending the task for a worker to process.
     """
     def __new__(cls, *args, **kwargs):

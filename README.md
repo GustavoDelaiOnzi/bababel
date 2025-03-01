@@ -1,28 +1,25 @@
-A messaging consumer library designed for efficient message handling and processing, simplifying both publishing and consumption.
+### Bababel
 
-In the current ver version you can only send tasks:
+Bababel is a robust and flexible messaging consumer library designed to efficiently handle and
+process messages in distributed systems. It simplifies message consumption and task execution, making it ideal for scalable applications that require asynchronous processing.
 
 Example usage:
 
-    from bababel.bababel_app import BababelApp
-    from bababel.task.task import Task
+    from bababel.app import BababelApp
 
-    # Sample Bababel Task
-    class SampleTask(Task):
-        def run(self, message: str, code: int):
-            return message
+    app = BababelApp(
+        host='localhost',
+        port=5672,
+        username='guest',
+        password='guest'
+    )
+    from bababel.tasks.task import Task
 
-    # Declare the BababelApp
-    app = BababelApp(host='localhost',
-                     port=5672,
-                     username='guest',
-                     password='guest')
+    class SampleXpto(Task):
+        def run(self, a: int, b: int):
+            return a + b
 
-    # Declare the task
-    task = SampleTask(app=app)
-
-    # Send message to the consumer (to be implemented)
-    # The consumer will execute task.run with the parameters given in the send method
-    task.send(message='xpto', code=123)
+    task = SampleXpto(app=app)
+    task.send(a=2, b=3)
 
 This project uses conventional commits 1.0.0
